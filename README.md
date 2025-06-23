@@ -25,6 +25,51 @@ Permite registrar, consultar, modificar y eliminar diferentes elementos de infra
 - PostgreSQL instalado y corriendo en tu máquina
 - pip y virtualenv para gestionar dependencias
 
+## Pasos de instalación y realizar pruebas
+
+1. **Clona el repositorio y entra al proyecto:**
+    ```bash
+    git clone <URL_DEL_REPO>
+    cd cmdb-fastapi
+    ```
+
+2. **Crea un entorno virtual y actívalo:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3. **Instala las dependencias:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Crea la base de datos en PostgreSQL:**
+    - Ingresa a psql:
+      ```bash
+      psql -U postgres
+      ```
+    - Ejecuta:
+      ```sql
+      CREATE DATABASE tarea3;
+      \q
+      ```
+
+5. **Configura los parámetros de conexión en `app/database.py`** si tus credenciales son diferentes.
+
+6. **Carga datos de ejemplo ejecutando:**
+    ```bash
+    python -m app.seed
+    ```
+
+7. **Inicia el servidor de FastAPI:**
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+
+8. **Accede a la documentación interactiva en:**  
+    [http://localhost:8000/docs](http://localhost:8000/docs)
+
 
 ## Diagrama ER
 ![Diagrama_ER](/backend/app/diagrama_ER.jpeg)
